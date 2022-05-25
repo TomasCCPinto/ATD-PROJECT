@@ -18,10 +18,9 @@ experiences_name = ["Exp54" "Exp55" "Exp56" "Exp57" "Exp58" "Exp59" "Exp60" "Exp
 
 
 %% Question 2
-for k = 54:61
-    experience = sprintf("exp%d", k);
-    data_label = label(label(:,1) == k, 3:end);
+%for k = 54:61           K = 56
+    data_label = label(label(:,1) == 56,3:end);
     for i = 1:3
-        my_plot(data_label, eval(experience), experiences_name(k-53), activities, i, axis_name(i), k)
+        my_plot(data_label, experiences(56-53), experiences_name(56-53), activities, i, axis_name(i), 56)
     end
-end
+%end

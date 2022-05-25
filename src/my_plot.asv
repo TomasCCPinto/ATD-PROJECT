@@ -14,7 +14,7 @@ for k = 1:length(data_label)
         plot(old_finish+1:start-1, exp(old_finish+1:start-1, axle), 'k')
     end
     
-    plot(start:finish, exp(start:finish, axle))
+    plot(start:finish-1, exp(start:finish, axle))
     
     if mod(k, 2) ~= 0
         text(data_label(k,2), min(exp(:, axle))*0.95, activities(data_label(k, 1)))

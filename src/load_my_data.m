@@ -25,7 +25,7 @@ function [] = load_my_data()
 		elseif strcmp(file.name, 'activity_labels.txt')
     		assignin("base", 'activities', data);
 		else
-        	assignin("base",file.name(5:16),data);
+        	assignin("base",file.name(5:9),data);
 		end
     end
 
