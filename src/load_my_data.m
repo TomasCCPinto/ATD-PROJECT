@@ -15,21 +15,17 @@ function [] = load_my_data()
 
     file_list = dir('../RawData/');
 
-    for file = file_list(3:end - 1)'
+    for file = file_list(3:end)'
 
         path = sprintf("%s/%s", file.folder, file.name);
         data = importdata(path, " ");
 
-		if strcmp(file.name, 'label.txt')
+		if strcmp(file.name, 'labels.txt')
     		assignin("base", 'label', data);
 		elseif strcmp(file.name, 'activity_labels.txt')
     		assignin("base", 'activities', data);
 		else
-        	assignin("base",file.name(5:9),data);
+        	assignin("base", file.name(5:9), data);
 		end
     end
-
-    path = sprintf("%s/%s", file_list(end).folder, file_list(end).name);
-    data = importdata(path, " ");
-    assignin("base", 'label', data);
 end
