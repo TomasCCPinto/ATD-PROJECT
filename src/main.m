@@ -22,61 +22,13 @@ for k = 54:61
 end
 
 
-%% Question 3
+%% Question 3.1
 
-data_label = label(label(:,1) == 61, 3:end);
-
-start = data_label(13,2);
-finish = data_label(13,3);
-y=2;
-X = fftshift(fft(exp61(start:finish, y)));
-m_X = abs(X);
-%plot(1:length(X), X)
-
-fs = 50;
-N = length(exp61(start:finish));
-if (mod(N,2)==0)
-    f = -fs/2:fs/N:fs/2-fs/N;
-else 
-    f = -fs/2 + fs/(2*N):fs/N:fs/2 - fs/(2*N);
-end
-
-figure(2)
-plot(f, m_X), hold on
-title('|DFT| do sinal');
-ylabel('Magnitude = |X|')
-xlabel('f [Hz]')
-axis tight
-threshold = max(m_X) * 0.2;
-
-% plot threshold in same figure
-% hint, help yline
-yline(threshold, 'r');
-hold off
-
-%% real
 data_label = label(label(:,1) == 61, 3:end);
 y=3;
 fs = 50;
 
-figure(10)
-hold on
-for atv = 1: length(data_label)
-    subplot(length(data_label)/2, 2, atv)
-
-    start = data_label(atv,2);
-    finish = data_label(atv,3);
-    X = fftshift(fft(exp61(start:finish, y)));
-
-    N = length(exp61(start:finish));
-    if (mod(N,2)==0)
-        f = -fs/2:fs/N:fs/2-fs/N;
-    else 
-        f = -fs/2 + fs/(2*N):fs/N:fs/2 - fs/(2*N);
-    end
-    plot(f, X)
-end
-hold off
+my_dft(data_label, exp61, 3, 50, 1)
 
 
 
