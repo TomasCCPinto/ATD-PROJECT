@@ -13,7 +13,7 @@
 function [] = load_my_data()
 
 
-    file_list = dir('../RawData/');
+    file_list = dir('D:\tomas\UNI\2ºANO\ATD\projeto\ATD-PROJECT\RawData');
 
     for file = file_list(3:end)'
 
