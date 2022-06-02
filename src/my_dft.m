@@ -1,5 +1,11 @@
 function [] = my_dft(plot_name,data_label, exp, axie,fs, fig_name,activities)
-
+% ==================== my_dft  ====================
+	% Description: This function calculates the dft of all activities
+    % of a experience by axis
+    %       
+	% Return: 
+	%		>>> no value
+    % 
 
 figure(fig_name)
 sgtitle(plot_name,'Interpreter','none');
@@ -29,6 +35,9 @@ for atv = 1 : length(data_label)
     plot(f, X)
     plot_name2 = sprintf("%s",activities{data_label(atv,1)});
     title(plot_name2)
+    if atv== length(data_label) | atv== length(data_label)-1
+        xlabel("frequency (HZ)");
+    end
     
 end
 

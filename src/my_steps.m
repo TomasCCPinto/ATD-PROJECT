@@ -1,16 +1,17 @@
 function steps_per_minute = my_steps(exp,fs,act)
-    % ==================== get_steps  ====================
+    % ==================== my_steps  ====================
 	% Description: This function calculates the number of steps per minute
     % of a dinamic activity.
+    %
 	% Arguments :
-	%		>>> exp_usr_name (string): e.g "exp11_user06"
+	%		>>> exp (string): e.g "exp54"
     %       >>> fs (double) : Sampling Frequency 
     %       >>> act (double) : dinamic activity
 	% Return: 
 	%		>>> steps_per_minute (double) : steps_per_minute of the act
-    % Usage:
-    %       >>> eg.: get_steps("exp11_user06",fs,13) 
-	% =================================================    
+    % 
+
+    
     % Getting Workspace Variables
     
     data_name = exp;
@@ -20,13 +21,16 @@ function steps_per_minute = my_steps(exp,fs,act)
     times = [[label{:,2}]',[label{:,3}]'];
     % Resolution in frequency
     N = length(signal(times(act,1):times(act,2),1));
+    
     fo = fs/N;
+    
     if mod(N,2) == 0
         n = -N/2: N/2 - 1;
     else
         n = -fix(N/2): fix(N/2);
     end
     f = n * fo;
+    
     % DFT calculation
     dft = fftshift(fft(detrend(signal(times(act,1):times(act,2)))));
     % Getting most relevant frequency

@@ -1,5 +1,19 @@
 function [] = my_plot(data_label, exp, exp_name, activities, axle, axis_name, fig)
-
+ % ==================== my_plot  ====================
+	% Description: This function plots the full signal
+    % of a experience by axis
+    %
+	% Arguments :
+	%		>>> data_label
+    %       >>> exp -> experience 
+    %       >>> exp_name
+    %       >>> activities -> cell with the activities
+    %       >>> axis index
+    %       >>> name of the axis
+    %       >>> figure number
+	% Return: 
+	%		>>> none
+    % 
 
 figure(fig),
 subplot(3,1,axle)
